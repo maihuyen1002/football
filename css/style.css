@@ -1,0 +1,238 @@
+body#loginBody{
+    background: url('../images/login_bg.jpg')  ;
+    background-size: cover;
+}
+
+.loginHeader{
+    text-align: center;
+}
+
+.loginHeader h1{
+    font-size: 40px;
+    font-weight: bold;
+    color: blue;
+}
+
+.loginHeader h3{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(41, 31, 118);
+}
+
+.loginBody form{
+    margin:0 auto;
+    width: 500px;
+    background: rgba(183, 202, 229, 0.5);
+    padding: 50px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+}
+
+.loginInputsContainer {
+    margin-top: 20px;
+}
+
+.loginInputsContainer label{
+    display: block;
+    font-size: 20px;
+}
+
+.loginInputsContainer input{
+    height: 30px;
+    width: 500px;
+    border: 2px solid rgb(135, 186, 215)
+}
+
+.LoginButtonContainer{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.LoginButtonContainer button{
+    font-size: 15px;
+    padding: 10px 40px;
+    background: rgb(96, 132, 164);
+}
+
+.header{
+    width: 100px;
+    height: 5px;
+    background-color: rgb(96, 166, 246);
+}
+
+.banner{
+    background-size: cover;
+    background: rgba(183, 202, 229, 0.5);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.HomepageContainer{
+    width:100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+ .bannerTagLine{
+    font-size: 20px;
+    font-weight: bolder;
+    color: blue;
+} 
+
+
+.sidebox
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: blueviolet;
+}
+
+#primary
+{
+    min-height: 650px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float:left;
+    width: 650px;
+    background-color: #FFFFFF;
+    text-align: left;
+    height: auto;
+    
+}     
+
+#secondary
+{
+    min-height: 650px;
+    text-align: left;
+    float: right;
+    width: 250px;
+    height: 100%;
+    background-color: #F7F7F7;
+    
+}
+
+.sidebox .vmenu ul{
+	text-align:left;
+	text-decoration:none;
+	margin:7px 0px 8px 0px;
+	list-style:none;
+	border-top:3px solid #cccccc;
+	padding:0;
+}
+
+.sidebox .vmenu ul li{
+	border-bottom:3px solid #cccccc;
+	margin:0;
+	list-style:none;
+	padding:6px 0 6px 5px;
+}
+
+.sidebox .vmenu ul li:hover
+{
+    background-color: #aaaaaa;
+    text-transform:uppercase;
+}
+.sidebox .vmenu ul li a:link, .sidebox1 .vmenu ul li a:visited{
+	letter-spacing:normal;
+	color:#9D370F;
+	font-style:normal;
+	font-size:14px;
+	font-family:Helvetica, Arial, sans-serif;
+	text-decoration:none;
+	font-weight:normal;
+}
+
+.sidebox .vmenu ul li a:hover{
+    color: #990099;
+    
+}
+
+
+
+
+
+/* for CV */
+#header{
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    background: rgb(81, 146, 230);
+    color: white ;
+   }
+
+#name{
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    font-size: 5ch;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#job{
+    letter-spacing: 0.2em;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#underline{
+    width: 450px;
+    height: 5px;
+    margin-top: 10px;
+    background: white;
+}
+
+#exp{
+    background: rgb(167, 164, 164);
+    padding: 8px;
+}
+
+#wrapper{
+    padding: 0px;
+    margin-top: 50px;
+}
+
+svg{
+    height: 1em;
+    margin-left: 40;
+}
+
+#forntbold{
+    font-weight: bold;
+    font-size: 2ch;
+}
+
+#forntitalic{
+    font-style: italic;
+    font-size: 2ch;
+}
+
+#forntitalicblue{
+    font-style: italic;
+    font-size: 2ch;
+    color: rgb(0, 102, 255);
+}
+
+
+
+#exp1{
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 6fr;
+}
+
+#edu{
+    display: grid;
+    grid-template-columns: 0.5fr 6fr;
+}
+
+#contacts{
+    background: rgb(167, 164, 164);
+    padding: 8px;
+}
+
+#skills{
+    background: rgb(167, 164, 164);
+    padding: 8px;
+}
+
+#space{
+    margin-left: 20px;
+}

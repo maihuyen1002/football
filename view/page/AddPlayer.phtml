@@ -1,0 +1,88 @@
+
+
+<script type="text/javascript">
+// Where el is the DOM element you'd like to test for visibility
+function isHidden(el) {
+    return (el.offsetParent === null)
+}
+
+function check()
+{
+
+    if (document.getElementById("txt_PlayerID").value  == "")
+    {
+        document.getElementById("message").innerHTML = "<b style='color:red'>Missing Player ID</b>";
+        console.log("Lack of `PlayerID` !!!");
+        return false;
+    }
+    return true;
+}
+
+function showInstruction()
+{
+    let divInstruction = document.getElementById("divInstruction");
+    console.log(divInstruction);
+    if (isHidden(divInstruction))
+        document.getElementById("divInstruction").setAttribute("style", "");
+    else
+        document.getElementById("divInstruction").setAttribute("style", "display: none");
+}
+
+function changeMSSV()
+{
+    console.log(document.getElementById("txt_PlayerID").value);
+    let t = document.getElementById("txt_PlayerID").value;
+    document.getElementById("message").innerHTML = t;
+}
+
+</script>
+
+
+
+
+
+
+<h1>ADD PLAYER</h1>
+<hr/>
+
+ <form method ="POST">
+ 	<input type="hidden" name="action" value="add" />
+    <table>
+        <tr>
+            <td>Player ID</td>
+            <td><input id="txt_PlayerID" name="PlayerID" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Full name</td>
+            <td><input id="txt_FullName" name="FullName" type="text" required/></td>                   
+        </tr>
+        <tr>
+            <td>Club ID</td>
+            <td><input id="txt_ClubID" name="ClubID" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input id="txt_DOB" name="DOB" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><input id="txt_Pos" name="Position" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Nationality</td>
+            <td><input id="txt_Nationality" name="Nationality" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td><input id="txt_number" name="Number" type="text" required/></td>
+        </tr>                
+    </table>
+    <input type="submit" name="btnAddNewRecord" value="ADD NEW PLAYER"/>
+     <span id="message"> </span>
+    <?php 
+    	if (isset($data) && $data != "")
+    	{
+    		echo $data;
+    	}
+    ?>  
+</form>

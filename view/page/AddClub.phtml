@@ -1,0 +1,80 @@
+
+
+<script type="text/javascript">
+// Where el is the DOM element you'd like to test for visibility
+function isHidden(el) {
+    return (el.offsetParent === null)
+}
+
+function check()
+{
+
+    if (document.getElementById("txt_PlayerID").value  == "")
+    {
+        document.getElementById("message").innerHTML = "<b style='color:red'>Missing Player ID</b>";
+        console.log("Lack of `PlayerID` !!!");
+        return false;
+    }
+    return true;
+}
+
+function showInstruction()
+{
+    let divInstruction = document.getElementById("divInstruction");
+    console.log(divInstruction);
+    if (isHidden(divInstruction))
+        document.getElementById("divInstruction").setAttribute("style", "");
+    else
+        document.getElementById("divInstruction").setAttribute("style", "display: none");
+}
+
+function changePlayerID()
+{
+    console.log(document.getElementById("txt_PlayerID").value);
+    let t = document.getElementById("txt_PlayerID").value;
+    document.getElementById("message").innerHTML = t;
+}
+
+</script>
+
+
+
+
+
+
+<h1>ADD CLUB</h1>
+<hr/>
+
+ <form method ="POST">
+ 	<input type="hidden" name="action" value="addClub" />
+    <table>
+        <tr>
+            <td>Player ID</td>
+            <td><input id="txt_ClubID" name="ClubID" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Club Name</td>
+            <td><input id="txt_ClubName" name="ClubName" type="text" /></td>                   
+        </tr>
+        <tr>
+            <td>Short Name</td>
+            <td><input id="txt_ShortName" name="ShortName" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Stadium ID</td>
+            <td><input id="txt_StadiumID" name="StadiumID" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Coach ID</td>
+            <td><input id="txt_CoachID" name="CoachID" type="text" /></td>
+        </tr>           
+    </table>
+    <input type="submit" name="btnAddNewRecord" value="ADD NEW CLUB"/>
+     <span id="message"> </span>
+    <?php 
+    	if (isset($data) && $data != "")
+    	{
+    		echo $data;
+    	}
+    ?>  
+</form>

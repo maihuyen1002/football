@@ -1,0 +1,21 @@
+
+
+<h1 >CLUB LIST</h1>
+
+
+<table>
+    <tr>
+        <th>Club ID</th>
+        <th>Short Name</th>
+        <th>Show Players</th>
+    </tr>
+    <?php foreach ($data as $item): ?>
+        <tr>
+            <td><?= $item->ClubID ?></td>
+            <td><?= $item->ClubName ?></td>
+            
+            <td><a href="index.php?action=listPlayerClub&ClubID=<?=$item->ClubID?>">Players List</a> <br/></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
