@@ -1,0 +1,44 @@
+<h1>ADD PLAYER</h1>
+<hr/>
+
+ <form method ="POST">
+ 	<input type="hidden" name="action" value="ModifyPlayer" />
+    <table>
+        <tr>
+            <td>Player ID</td>
+            <td><input id="txt_PlayerID" name="PlayerID" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Full name</td>
+            <td><input id="txt_FullName" name="FullName" type="text" required/></td>                   
+        </tr>
+        <tr>
+            <td>Club ID</td>
+            <td><input id="txt_ClubID" name="ClubID" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input id="txt_DOB" name="DOB" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td><input id="txt_Pos" name="Position" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Nationality</td>
+            <td><input id="txt_Nationality" name="Nationality" type="text" required/></td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td><input id="txt_number" name="Number" type="text" required/></td>
+        </tr>                
+    </table>
+    <input type="submit" name="btnAddNewRecord" value="MODIFY PLAYER"/>
+     <span id="message"> </span>
+    <?php 
+    	if (isset($data) && $data != "")
+    	{
+    		echo $data;
+    	}
+    ?>  
+</form>

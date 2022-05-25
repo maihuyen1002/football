@@ -121,7 +121,7 @@ class PlayerModel
         $mysqli = connect();
         $mysqli->query("SET NAMES utf8");
         
-        $query = "SELECT * FROM player where ClubID='$ClubID'";
+        $query = "SELECT * FROM player p, club c where p.ClubID='$ClubID'and p.ClubID = c.ClubID";
         $result = $mysqli->query($query);
         $listPlayer = array();
         if ($result) 
@@ -129,8 +129,12 @@ class PlayerModel
             foreach ($result as $row) {
                 $player = new PlayerModel();
                 $player->PlayerID = $row["PlayerID"];
-                $player->FullName = $row["FullName"];     
-                $listPlayer[] = $player; //add an item into array
+                $player->FullName = $row["FullName"]; 
+                $player->Position = $row["Position"];
+                $player->Number = $row["Number"]; 
+                $player->Nationality = $row["Nationality"]; 
+                $player->ClubName=$row["ClubName"];  
+                $listPlayer[] = $player; //add an item into array 
             }
         }
         $mysqli->close();
@@ -141,12 +145,38 @@ class PlayerModel
     {
         $mysqli = connect();
         $mysqli->query("SET NAMES utf8");
-        $query = "DELETE FROM player WHERE PlayerID=$PlayerID";
+
+        $query1 = "DELETE FROM match_players  WHERE PlayerID = $PlayerID";
+        $mysqli->query($query1);
+
+        $query = " DELETE FROM player WHERE PlayerID=$PlayerID";
         $r = 0;
         if ($mysqli->query($query))       
-            $r = 1;
+            $r = 1;       
+        
         $mysqli->close();
         return $r;
+        
+    }
+
+    public static function updatePlayer($PlayerID, $FullName, $Position, $Number, $Nationality, $ClubID, $DOB)
+    {
+        $mysqli = connect();
+        $mysqli->query("SET NAMES utf8");
+
+        $query = "UPDATE player 
+        SET FullName = '$FullName', 
+        Position = '$Position',  
+            Number = '$Number', 
+            Nationality='$Nationality', 
+            ClubID='$ClubID', 
+            DOB='$DOB'
+            where PlayerID= $PlayerID";
+
+        $result = $mysqli->query($query);
+
+        $mysqli->close();
+        return $result;
         
     }
 }

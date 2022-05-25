@@ -47,7 +47,8 @@
             <th>Number</th>
             <th>Nationality</th>
             <th>ClubName</th>
-    
+            <th> Delete Player</th>
+            <th> Modify Player</th>
         </tr>
         <?php foreach ($data as $item): ?>
         <tr>
@@ -69,7 +70,11 @@
             <td>
                 <?= $item->ClubName ?>
             </td>
-        </tr>
+            <td>
+                <a href="index.php?action=delete&PlayerID=<?= $item->PlayerID ?>">Delete</a></td>
+            <td>
+                <a href="index.php?action=ModifyPlayer&PlayerID">Modify</a></td>
+            </tr>
         <?php endforeach; ?>
     </table>
 </div>

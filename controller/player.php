@@ -61,12 +61,61 @@ class PlayerController
     }
 
     public function delete()
-    {
-        $MSSV = $_REQUEST["MSSV"];
-        $result = PlayerModel::delete($MSSV);        
+    {   if (isset($_REQUEST["PlayerID"]))
+        {
+        $PlayerID = $_REQUEST["PlayerID"];
+        $result = PlayerModel::delete($PlayerID);        
         $data = PlayerModel::listAll();        
         $VIEW = "./view/page/PlayerList.phtml";
         require("./template/template.phtml");
+        }
+    }
+
+    public function updatePlayer()
+    {
+        if (isset($_REQUEST["PlayerID"]))
+        {
+        $PlayerID = $_GET["PlayerID"];
+        $FullName="";
+        $Position="";
+        $Number="";
+        $Nationality="";
+        $DOB ="";
+        $ClubID="";
+
+        if(isset($_POST["FullName"]) and $_POST["FullName"] != ""){
+            $FullName = $_POST["FullName"];
+        }
+        if(isset($_POST["Position"]) and $_POST["Position"] != ""){
+            $Position = $_POST["Position"];
+        }
+        if(isset($_POST["Number"]) and $_POST["Number"] != ""){
+            $Number = $_POST["Number"];
+        }
+        if(isset($_POST["Nationality"]) and $_POST["Nationality"] != ""){
+            $Nationality = $_POST["Nationality"];
+        }
+        if(isset($_POST["ClubID"]) and $_POST["ClubID"] != ""){
+            $ClubID = $_POST["ClubID"];
+        }
+        if(isset($_POST["DOB"]) and $_POST["DOB"] != ""){
+            $DOB = $_POST["DOB"];
+        }
+       
+
+        $result=true;
+        $result = PlayerModel::updatePlayer($PlayerID, $FullName, $Position, $Number, 
+            $Nationality, $ClubID, $DOB);
+        if($result==true){
+            echo "<script>alert('Modify player successfully!');</script>";
+        }
+        else{
+            echo "<script>alert('Modify player failed!');</script>";
+        }
+    }
+        $VIEW = "./view/page/ModifyPlayer.phtml";
+        require("./template/template.phtml");
+    
     }
 
     

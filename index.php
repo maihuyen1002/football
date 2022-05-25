@@ -44,6 +44,9 @@ switch ($action)
     case "addClub":
         $controller = new ClubController();
         $controller->addClub();
+    case "ModifyPlayer":
+        $controller = new PlayerController();
+        $controller->updatePlayer();
     break;
     default:
         $controller = new HomeController();
