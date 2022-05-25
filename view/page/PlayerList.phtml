@@ -16,35 +16,15 @@
 // }
 ?>
 
-<table>
-    <tr>
-        <th>Player ID</th>
-        <th>Full Name</th>
-        <th>Position</th>
-        <th>Number</th>
-        <th>Nationality</th>
-        <th>ClubName</th>
-        
-    </tr>
-    <?php foreach ($data as $item): ?>
-        <tr>
-            <td><?= $item->PlayerID ?></td>
-            <td><?= $item->FullName ?></td>
-            <td><?= $item->Position ?></td>
-            <td><?= $item->Number ?></td>
-            <td><?= $item->Nationality ?></td>
-            <td><?= $item->ClubName ?></td>
-        </tr>
-    <?php endforeach; ?>
-</table>
+
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#searchPlayer').keyup(function () {
+        $('#searchPlayer').click(function () {
             let keyword = encodeURI($('#inputSearchPlayer').val());
-            let url = 'http://localhost/18120401_Football/index.php?action=search&keyword=' + keyword;
+            let url = 'index.php?action=search&keyword=' + keyword;
             $.ajax({
                 url: url,
                 method: 'GET',
@@ -52,51 +32,44 @@
                     $("#searchPlayerTable").html(data);
                 }
             });
-           
+
         });
     });
 
+</script>
 
-    <div id="searchPlayerTable">
-        <table>
-            <tr>
-                <th>Player ID</th>
-                <th>Full Name</th>
-                <th>Position</th>
-                <th>Number</th>
-                <th>Nationality</th>
-                <th>ClubName</th>
-            </tr>
-            <?php foreach ($data as $player): ?>
-            <tr>
-                <td>
-                    <?= $player->PlayerID ?>
-                </td>
-                <td>
-                    <?= $player->FullName ?>
-                </td>
-                <td>
-                    <?= $player->Position ?>
-                </td>
-                <td>
-                    <?= $player->Number ?>
-                </td>
-                <td>
-                    <?= $player->Nationality ?>
-                </td>
-                <td>
-                    <?= $player->ClubName?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
-
-
+<div id="searchPlayerTable">
+    <table>
+        <tr>
+            <th>Player ID</th>
+            <th>Full Name</th>
+            <th>Position</th>
+            <th>Number</th>
+            <th>Nationality</th>
+            <th>ClubName</th>
     
-
-
-
-    
-
-
+        </tr>
+        <?php foreach ($data as $item): ?>
+        <tr>
+            <td>
+                <?= $item->PlayerID ?>
+            </td>
+            <td>
+                <?= $item->FullName ?>
+            </td>
+            <td>
+                <?= $item->Position ?>
+            </td>
+            <td>
+                <?= $item->Number ?>
+            </td>
+            <td>
+                <?= $item->Nationality ?>
+            </td>
+            <td>
+                <?= $item->ClubName ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</div>

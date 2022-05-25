@@ -48,7 +48,10 @@ class PlayerModel
         $mysqli = connect();
         
         $mysqli->query("SET NAMES utf8");
-        $query = "SELECT * FROM player WHERE FullName LIKE '%$keyword%'";
+        $query = "SELECT PlayerID, FullName, Position, Nationality, Number,  ClubName, club.ClubID "
+        ."FROM player left JOIN club ON player.ClubID = club.ClubID "
+        ."where player.FullName like '%$keyword%'";  
+        ;
         $result = $mysqli->query($query);
         $listPlayer = array();
         if ($result) 
@@ -60,7 +63,7 @@ class PlayerModel
                 $player->Position = $row["Position"];
                 $player->Nationality = $row["Nationality"];
                 $player->Number=$row["Number"];
-                $player->DOB=$row["DOB"];
+               // $player->DOB=$row["DOB"];
                 $player->ClubName=$row["ClubName"];
                 $player->ClubID=$row["ClubID"];       
                 $listPlayer[] = $player; //add an item into array

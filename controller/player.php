@@ -24,8 +24,8 @@ class PlayerController
     {
         $keyword = $_REQUEST["keyword"];
         $data = PlayerModel::find($keyword);
-        $VIEW = "./view/PlayerList.phtml";
-        require("./template/template.phtml");
+        include('./view/page/SearchPlayerList.phtml');
+        
     }
 
     public function add()
